@@ -1,0 +1,14 @@
+#bigContainer {
+    width: 480px;
+    height: 480px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+}
+
+.cell {
+    background-color: white;
+    border: 1px solid grey;
+    box-sizing: border-box;
+}
