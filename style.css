@@ -1,14 +1,14 @@
-#bigContainer {
-    width: 480px;
-    height: 480px;
+#container{
+    display: flex;
+    flex-wrap: wrap;
     border: 1px solid black;
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
+    width: 400px;
+    height: 400px;
 }
-
-.cell {
-    background-color: white;
-    border: 1px solid grey;
+.square{
+    background-color: aliceblue;
+    border: 1px solid black;
+    width: calc(100% / 16);
+    height: calc(100% / 16);
     box-sizing: border-box;
 }
