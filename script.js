@@ -6,7 +6,7 @@ for(let i=0; i<256; i++){
 }
 const events=document.querySelectorAll(".square");
 for(let i=0; i<events.length; i++){
-    events[1].addEventListener("mouseover", function(){
-        events[1].styles.backgroundColor="black";
-    })
+    events[i].addEventListener("mouseover", function(){
+        events[i].style.backgroundColor="black";
+    });
 }
