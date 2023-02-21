@@ -1,28 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Etch-a-Sketch</title>
+	<title>Grid</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <script src="script.js" defer></script>
-    <input type="range" min="0" max="1000" value="256" step="1" id="mySlider">
-        <div id="container"></div>
-        <div>
-            <label for="numSquares">Number of squares:</label>
-            <input type="range" id="numSquares" name="numSquares" min="1" max="1000" value="256">
-            <br>
-            <label for="squareSize">Square size:</label>
-            <input type="range" id="squareSize" name="squareSize" min="10" max="50" value="30">
-            <br>
-            <button id="generateButton">Generate squares</button>
-            <button id="deleteButton">Delete squares</button>
-        </div>
-        </div>  
-    
-  
+	<div id="container"></div>
+	<button id="generate">Reset</button>
+	<input type="range" value="256" min="1" max="256" id="mySlider">
+	<script src="script.js"></script>
 </body>
 </html>

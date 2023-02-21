@@ -1,16 +1,16 @@
-#container{
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid black;
-    width: 400px;
-    height: 450px;
-    margin-top: 100px;
-    margin-left: 450px;
-}
-.square{
-    background-color: aliceblue;
-    border: 1px solid black;
-    width: calc(100% / 16);
-    height: calc(100% / 16);
-    box-sizing: border-box;
-}
+#container {
+	display: flex;
+	flex-wrap: wrap;
+	border: 1px solid black;
+	width: 400px;
+	height: 400px;
+  }
+  
+  .square {
+	background-color: white;
+	border: 1px solid black;
+	width: calc(100% / var(--num-columns));
+	height: calc(100% / var(--num-rows));
+	box-sizing: border-box;
+  }
+  
