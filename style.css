@@ -8,7 +8,7 @@
   
   .square {
 	background-color: white;
-	border: 0px solid black;
+	border: 1px solid black;
 	width: calc(100% / var(--num-columns));
 	height: calc(100% / var(--num-rows));
 	box-sizing: border-box;

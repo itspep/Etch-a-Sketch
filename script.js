@@ -1,7 +1,8 @@
 const container = document.getElementById("container");
 const generateButton = document.getElementById("generate");
 const rangeInput = document.getElementById("mySlider");
-const sliderValue=document.querySelector(".sliderValue");
+const sliderValue=document.getElementById("sliderValue");
+const clear=document.getElementById("clear");
 
 function generateSquares(numColumns, numRows) {
   container.style.setProperty("--num-columns", numColumns);
@@ -31,10 +32,14 @@ generateButton.addEventListener("click", function() {
   const numColumns = Math.ceil(numSquares / numRows);
   generateSquares(numColumns, numRows);
 });
+clear.addEventListener("click", ()=>{
+  const squares=document.querySelectorAll(".square");
+  squares.forEach(square=>square.style.backgroundColor="");  
+});
 rangeInput.addEventListener("input", ()=>{
   const value=rangeInput.value;
-  sliderValue.textContent=value;
-})
+  sliderValue.textContent+=value;
+});
 
 // generate initial set of squares
 const numSquares = rangeInput.value;
