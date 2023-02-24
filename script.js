@@ -9,6 +9,9 @@ function generateSquares(numColumns, numRows) {
   for (let i = 0; i < numColumns * numRows; i++) {
     const square = document.createElement("div");
     square.classList.add("square");
+    square.addEventListener("click", ()=>{
+      square.style.backgroundColor="black";
+    });
     container.appendChild(square);
   }
 }
