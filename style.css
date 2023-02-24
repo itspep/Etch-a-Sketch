@@ -12,6 +12,7 @@
 	width: calc(100% / var(--num-columns));
 	height: calc(100% / var(--num-rows));
 	box-sizing: border-box;
+	border-radius: 50%;
   }
   .square :hover{
 	background-color: black;
