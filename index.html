@@ -5,12 +5,19 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div id="container"></div>
-	<button id="generate">Reset</button>
-	<button id="colorToggle">Color Mode</button>
-	<input type="range" value="500" min="1" max="1500" id="mySlider">
-	<p id="sliderValue">Number of Circles: </p>
-	<button id="clear">Clear</button>
+	<div class="bigContainer">
+		<div id="container"></div>
+		<div clas="buttons">
+			<button id="generate">Reset</button>
+			<button id="colorToggle">Color Mode</button>
+			<button id="clear">Clear</button>
+		</div>
+		<div class="sliderContainer">
+			<input type="range" value="500" min="1" max="1500" id="mySlider">
+			<p id="sliderValue">Number of Circles: </p>
+		</div>
+		
+	</div>
 	<script src="script.js" defer></script>
 </body>
 </html>
