@@ -5,6 +5,9 @@ const rangeInput = document.getElementById("mySlider"); //for the slider
 const sliderValue = document.getElementById("sliderValue");// for the  slider value
 const clear = document.getElementById("clear");//for the clear button
 const colorToggle = document.getElementById("colorToggle");// for the color button
+const eraser=document.getElementById("eraser");
+
+let erase="white";
 //set the default color for the squares
 let colorMode = "black";
 //set the isMouseDown to false, meaning the mouse is not pressed
@@ -33,6 +36,9 @@ function generateSquares(numColumns, numRows) {
       } else if (colorMode === "random") { //else if color mode is random set the background to getRandom
         square.style.backgroundColor = getRandomColor();
       }
+      else if (colorMode === "white"){
+        square.style.backgroundColor="white";
+      }
     });
     //add a mousemove to change the background color when the user drags the mouse 
     square.addEventListener("mousemove", (event) => {
@@ -44,6 +50,9 @@ function generateSquares(numColumns, numRows) {
         } else if (colorMode === "random") {//else if it is random call the random function
           event.target.style.backgroundColor = getRandomColor();
         }
+        else if (colorMode==="white"){
+          event.target.style.backgroundColor="white";
+        }
       }
     });
     //add an event listener for mouseup
@@ -51,9 +60,12 @@ function generateSquares(numColumns, numRows) {
       isMouseDown = false;//change the isMouseDown to false
     });
     //now append the child to the container
+
+    //NOTE: only when it is the event listener for mouseup do we have an append child
     container.appendChild(square);
   }
 }
+//all event listeners that has to do with  the squares are defined inside the the generateSquares function 
 //add an event listener to the generate button 
 generateButton.addEventListener("click", function () {
   //get the rangeInput value from the slider and store in numSquares
@@ -70,25 +82,39 @@ generateButton.addEventListener("click", function () {
   //then call the function
   generateSquares(numColumns, numRows);
 });
-
+//this even listener clears the the background color, literally changing them to white
 clear.addEventListener("click", () => {
   const squares = document.querySelectorAll(".square");
   squares.forEach((square) => (square.style.backgroundColor = ""));
 });
-
-rangeInput.addEventListener("input", () => {
-  const value = rangeInput.value;
-  sliderValue.textContent = value;
-});
-
-colorToggle.addEventListener("click", () => {
-  if (colorMode === "black") {
-    colorMode = "random";
-  } else {
-    colorMode = "black";
+//this event listener erasers or changes the colorMode to white which further changes the background color
+eraser.addEventListener("click", () => {
+  //if the colorMode is black or random all must be turned to white
+  if(colorMode==="black"){
+    colorMode="white";
+  }
+  else if(colorMode==="random"){
+    colorMode="white";
   }
 });
 
+//this is the slider event listener
+rangeInput.addEventListener("input", () => {
+  const value = rangeInput.value;
+  //dislplay the value generated
+  sliderValue.textContent = value;
+});
+//another add event listener to change multiple colors for the background
+//here the white is not include coze it is either color or black and white will mean to erase
+colorToggle.addEventListener("click", () => {
+  if (colorMode === "black") {
+    colorMode = "random";
+  } else{
+    colorMode = "black";
+  }
+});
+//now this event listener takes effect when we click on the document and the target will then specify which particular 
+//part of the document
 document.addEventListener("mousemove", (event) => {
   if (isMouseDown && event.target.classList.contains("square")) {
     if (colorMode === "black") {
@@ -96,13 +122,19 @@ document.addEventListener("mousemove", (event) => {
     } else if (colorMode === "random") {
       event.target.style.backgroundColor = getRandomColor();
     }
+    else if (colorMode==="white"){
+      event.target.style.backgroundColor = "white";
+    }
   }
 });
-
+//this function gets a random color 
 function getRandomColor() {
+  //first we define a letter and assign 16 hexadecimal values to it
   const letters = "0123456789ABCDEF";
+  //color has the "#" to signify hex color format
   let color = "#";
   for (let i = 0; i < 6; i++) {
+    //here letters is an array
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
