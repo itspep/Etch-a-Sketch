@@ -1,18 +1,28 @@
+/*this is for the whole container*/
 #container {
+	/*the display flex makes the container flexible*/
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: wrap;/*wraps outflowing*/ 
+	/*to set the container to the center, set the align-item and the justify-content to center*/
 	align-items: center;
 	justify-content: center;
 	border: 1px solid black;
+	/*the width and the heigh sets the width and the height of the container*/
 	width: 400px;
 	height: 400px;
 	margin-left: 50%;
-	box-sizing: border-box;
+	box-sizing: border-box;/*this enables the margins and paddings to take effect in the container*/
   }
-  
+  /*this is for the individual squares*/
   .square {
 	background-color: white;
 	border: 1px solid black;
+	/* the calc function calculates, thus 100% divide by the var(--num-columns) or var(--num-rows)
+	which is actually the value recieved by the setProperty in the script file.
+	Say var is 10 so 100%/10 will give 10%. Now 10% of the width of the container (400px) will give 40px
+	therefore, the width or height for each square will be 40px
+
+	NOTE: the var is subject to changes, made in the script file, changes like if the slider.value changes to 500*/
 	width: calc(100% / var(--num-columns));
 	height: calc(100% / var(--num-rows));
 	box-sizing: border-box;

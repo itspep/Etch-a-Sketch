@@ -46,17 +46,28 @@ function generateSquares(numColumns, numRows) {
         }
       }
     });
+    //add an event listener for mouseup
     square.addEventListener("mouseup", () => {
-      isMouseDown = false;
+      isMouseDown = false;//change the isMouseDown to false
     });
+    //now append the child to the container
     container.appendChild(square);
   }
 }
-
+//add an event listener to the generate button 
 generateButton.addEventListener("click", function () {
+  //get the rangeInput value from the slider and store in numSquares
   const numSquares = rangeInput.value;
+  //the Math.ceil function rounds the number to the smallest whole number
+  //the Math.floor function rounds a number to the highest whole number
+  //trhe Math.sqrt function returns the square root of the number passed to it
+
+  //now in this case, the results for numRows and numColumns will be transferred
+  //to the parameters of the setProperties which will be given to the custome variables 
+  //of the css
   const numRows = Math.ceil(Math.sqrt(numSquares));
   const numColumns = Math.ceil(numSquares / numRows);
+  //then call the function
   generateSquares(numColumns, numRows);
 });
 
