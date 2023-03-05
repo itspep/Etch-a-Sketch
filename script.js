@@ -133,8 +133,13 @@ function getRandomColor() {
   const letters = "0123456789ABCDEF";
   //color has the "#" to signify hex color format
   let color = "#";
+  //The function runs a for loop with six iterations. This is because a valid hex color code requires six digits.
   for (let i = 0; i < 6; i++) {
-    //here letters is an array
+    //For each iteration, the function generates a random number between 0 and 1 using the Math.random()
+    //and then multiplies that number by 16 using Math.floor(Math.random() * 16). 
+    //The result is then used as an index to select a character from the letters string.
+    //The selected character is then appended to the color variable using the += operator.
+    //After the loop completes, the function returns the final value of color, which is a valid hex color code.
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
