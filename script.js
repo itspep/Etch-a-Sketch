@@ -1,19 +1,27 @@
-const container = document.getElementById("container");
-const generateButton = document.getElementById("generate");
-const rangeInput = document.getElementById("mySlider");
-const sliderValue = document.getElementById("sliderValue");
-const clear = document.getElementById("clear");
-const colorToggle = document.getElementById("colorToggle");
-
+//declaring the  variables to store the various elements collected
+const container = document.getElementById("container");//the container ID
+const generateButton = document.getElementById("generate");//for the generate button
+const rangeInput = document.getElementById("mySlider"); //for the slider
+const sliderValue = document.getElementById("sliderValue");// for the  slider value
+const clear = document.getElementById("clear");//for the clear button
+const colorToggle = document.getElementById("colorToggle");// for the color button
+//set the default color for the squares
 let colorMode = "black";
+//set the isMouseDown to false, meaning the mouse is not pressed
 let isMouseDown = false;
-
+//create a function to generate the squares
+//here the function takes two arguments
 function generateSquares(numColumns, numRows) {
+  /* the custome properties (--num-columns, --num-rows) will be replaced by the new values contained
+  in the numColumns and the numRows respectively
+  the setProperty allows us to modify the properties of a custom property*/
   container.style.setProperty("--num-columns", numColumns);
   container.style.setProperty("--num-rows", numRows);
   container.innerHTML = ""; // remove existing squares
+  //the for loop creates the new squares based on the numColumns and numRows
   for (let i = 0; i < numColumns * numRows; i++) {
     const square = document.createElement("div");
+    //create a class for each square named "square"
     square.classList.add("square");
     square.style.backgroundColor = "white"; // set default color to white
     square.addEventListener("mousedown", () => {
