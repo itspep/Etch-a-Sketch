@@ -23,20 +23,25 @@ function generateSquares(numColumns, numRows) {
     const square = document.createElement("div");
     //create a class for each square named "square"
     square.classList.add("square");
-    square.style.backgroundColor = "white"; // set default color to white
+    square.style.backgroundColor = "white"; // set default background color to white
+    /*after creating the new divs (squares)
+    add an event listener with mouseDown as a parameter*/
     square.addEventListener("mousedown", () => {
-      isMouseDown = true;
-      if (colorMode === "black") {
-        square.style.backgroundColor = "black";
-      } else if (colorMode === "random") {
+      isMouseDown = true;//set the isMouseDown to true
+      if (colorMode === "black") {//already color mode was set initially to black
+        square.style.backgroundColor = "black";//if colorMode is black set the background color to black
+      } else if (colorMode === "random") { //else if color mode is random set the background to getRandom
         square.style.backgroundColor = getRandomColor();
       }
     });
+    //add a mousemove to change the background color when the user drags the mouse 
     square.addEventListener("mousemove", (event) => {
+      //check to see of isMouseDown is true and check if the event has a classlist which contains square
       if (isMouseDown && event.target.classList.contains("square")) {
+        //check to see if color mode is black
         if (colorMode === "black") {
           event.target.style.backgroundColor = "black";
-        } else if (colorMode === "random") {
+        } else if (colorMode === "random") {//else if it is random call the random function
           event.target.style.backgroundColor = getRandomColor();
         }
       }
